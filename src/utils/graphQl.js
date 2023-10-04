@@ -5,7 +5,7 @@ const client = new ApolloClient({
         uri: "https://cool-mouse-48.hasura.app/v1/graphql",
         headers: {
             "x-hasura-admin-secret":
-            'import.meta.env.DB_KEY',
+            import.meta.env.VITE_DB_KEY,
         },
     }),
     cache: new InMemoryCache(),
