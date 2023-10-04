@@ -8,6 +8,7 @@ query getAllSongs {
     Thumbnail
     Title
     URL
+    ID
   }
 }
 `;
