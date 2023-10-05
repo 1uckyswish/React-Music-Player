@@ -3,6 +3,9 @@ import "./App.css"
 import { GET_ALL_SONGS } from './utils/queries'
 import { useQuery } from "@apollo/client"
 import ReactPlayer from 'react-player'
+import Header from './Components/Header/Header'
+import Playlist from './Components/Playlist/Playlist'
+import PlayingNext from './Components/PlayingNext/PlayingNext'
 
 function App() {
   const { data, loading, error } = useQuery(GET_ALL_SONGS);
@@ -19,14 +22,15 @@ function App() {
 
   return (
     <div>
-    {data?.Music.map((item)=>{
-      return <div key={item.ID}>
-        <p>{item.Artist}</p>
-        <img src={item.Thumbnail} width='60px'alt={item.Artist}/>
-        <p>{item.Title}</p>
-        <ReactPlayer url={item.URL} controls />
+      <Header />
+      <div>
+      <PlayingNext />
+      <h2 className='playlist-section'>All Songs</h2>
+      <Playlist />
+      <Playlist />
+      <Playlist />
+      <Playlist />
       </div>
-    })}
     </div>
   );
 }
