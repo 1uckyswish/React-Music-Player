@@ -1,12 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Urbanist&display=swap');
 
+/* header color  #151b1f; */
+/* bc for main page #1b2328; */
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Urbanist', sans-serif;
 }
-
+body {
+  background-color: #1b2328;
+}
 a{
    text-decoration: none;
+}
+.playlist-section {
+  margin: 10px 0px 20px 70px;
+  letter-spacing: 3px;
+  font-size: 2rem;
+  color: #F9F6EE;
 }
