@@ -1,0 +1,20 @@
+header {
+    display: flex;
+    height: 7vh;
+    background-color: #151b1f;
+    align-items: center;
+    padding: 0px 15px;
+}
+header input {
+    border: none;
+    border-radius: 24px;
+    padding-left: 15px;
+    letter-spacing: 1px;
+    height: 3vh;
+    width: 40vw;
+    margin-left: 70%;
+}
+.music-icon {
+    font-size: 25px;
+    color: lightblue;
+}
