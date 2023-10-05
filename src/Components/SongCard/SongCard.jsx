@@ -1,12 +1,15 @@
 import React from 'react'
-import './Playlist.css'
+import './SongCard.css'
 import song from '../../assets/cover-1.jpg'
 import { MdOutlineAdd } from "react-icons/md";
 import { AiOutlineClose } from "react-icons/ai";
 
 
 
-function Playlist() {
+function SongCard({Queue}) {
+  if(Queue){
+    console.log('hii')
+  }
   return (
     <section className='playlist-row'>
     <div className='playlist-container'>
@@ -17,7 +20,9 @@ function Playlist() {
         </div>
     </div>
     <div className='playlist-edit'>
-        <MdOutlineAdd className='playlist-addbtn'/>
+      {
+        Queue ? <MdOutlineAdd className='hide-btn playlist-addbtn' /> : <MdOutlineAdd className='playlist-addbtn' />
+      }
         <AiOutlineClose className='playlist-deletebtn'/>
     </div>
     </section>
@@ -25,4 +30,4 @@ function Playlist() {
   )
 }
 
-export default Playlist
+export default SongCard
