@@ -1,0 +1,37 @@
+.playlist-container {
+    display: flex;
+}
+.playlist-container img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    margin: 10px 20px 10px 10px;
+    -webkit-user-drag: none;
+}
+.playlist-info {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.playlist-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 60px;
+    color: #F9F6EE;
+}
+.playlist-add-song {
+    font-size: 1.5rem;
+}
+.playlist-addbtn {
+font-size: 1.6rem;
+margin-right: 10px;
+}
+.playlist-deletebtn{
+font-size: 1.4rem;
+margin-bottom: 1px;
+}
+.playlist-addbtn:hover, .playlist-deletebtn:hover {
+    color: lightblue;
+    cursor: pointer;
+}
