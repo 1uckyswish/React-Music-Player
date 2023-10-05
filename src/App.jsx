@@ -35,10 +35,9 @@ function App() {
         <section className='playlist-centering'>
           <h2 className='playlist-section'>All Songs</h2>
           <div>
-            <SongCard />
-            <SongCard />
-            <SongCard />
-            <SongCard />
+            {
+              data?.Music.map(song => <SongCard song={song} key={song.ID}/>)
+            }
           </div>
         </section>
       </div>

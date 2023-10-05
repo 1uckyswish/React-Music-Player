@@ -5,8 +5,7 @@ import SongCard from '../SongCard/SongCard'
 function Queue() {
   return (
     <div className='Queue-container'>
-        <SongCard Queue={true}/>
-        <SongCard Queue={true}/>
+        {/* <SongCard Queue={true}/> */}
     </div>
   )
 }
