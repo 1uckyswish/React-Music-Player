@@ -23,5 +23,5 @@ a{
 .playlist-centering {
   display: flex;
   flex-direction: column;
-  padding: 0px 100px;
+  padding: 0px 100px 80px 100px;
 }
