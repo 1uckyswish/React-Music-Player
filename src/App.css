@@ -15,8 +15,13 @@ a{
    text-decoration: none;
 }
 .playlist-section {
-  margin: 10px 0px 20px 70px;
   letter-spacing: 3px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #F9F6EE;
+  padding: 20px 13px;
+}
+.playlist-centering {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 100px;
 }
