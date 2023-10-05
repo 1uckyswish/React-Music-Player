@@ -1,0 +1,32 @@
+.playing-container {
+    padding: 120px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #F9F6EE;
+    letter-spacing: 2px;
+}
+.playing-container img {
+    width: 350px;
+    height: 350px;
+    border-radius: 200px;
+    object-fit: cover;
+    -webkit-user-drag: none;
+}
+.playing-song-info {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.playing-song-info h4 {
+    margin: 50px 0px 10px 0px;
+}
+.playing-btns {
+    font-size: 3rem;
+    margin: 0px 20px;
+}
+.controls {
+    padding-top: 45px;
+    cursor: pointer;
+}
