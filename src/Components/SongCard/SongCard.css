@@ -1,5 +1,6 @@
 .playlist-container {
     display: flex;
+    padding-right: 50px;
 }
 .playlist-container img {
     width: 90px;
@@ -13,11 +14,16 @@
    flex-direction: column;
    justify-content: center;
 }
+.playlist-info h1 {
+    font-size: 1.5rem;
+}
+.playlist-info h2 {
+    font-size: 1.2rem;
+}
 .playlist-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 60px;
     color: #F9F6EE;
 }
 .playlist-add-song {
@@ -35,3 +41,7 @@ margin-bottom: 1px;
     color: lightblue;
     cursor: pointer;
 }
+.hide-btn {
+    display: none;
+}
+
