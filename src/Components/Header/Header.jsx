@@ -17,7 +17,7 @@ const customStyles = {
       backgroundColor: '#1b2328',
     },
     overlay:{
-      backgroundColor: "rgba(0,0,0,0.5)"
+      backgroundColor: "rgba(0,0,0,0.6)"
     }
   };
 
@@ -39,13 +39,18 @@ const customStyles = {
          const workingURL = ReactPlayer.canPlay(input)
          if(workingURL){
           setIsOpen(true)
-          setInput("")
+          // setInput("")
          }else{
-          alert("sorry")
+          alert("Url not playable")
          }
-        console.log('handled')
   }
 
+  const handleSongEdit = async (player)=>{
+    console.dir(player)
+  };
+
+  const [userChoosenImage, setUserChoosenImage] = useState(""); 
+  console.log(userChoosenImage)
   return (
     <>
     <header>
@@ -65,11 +70,13 @@ const customStyles = {
         style={customStyles}
         contentLabel="Music apply">
         <div className='modal-container'>
-          <img src='../../../src/assets/cover-1.jpg' />
-          <label>Upload Image for album cover</label>
-          <input type="file" id="image" accept="image/*"/>
-         <input placeholder='Artist Name' class='custom-input'/>
-          <input placeholder='Song Title' class='custom-input'/>
+
+          <ReactPlayer url={input} hidden onReady={handleSongEdit}/>
+          <img src={userChoosenImage} alt='album cover' />
+          <label>*Optional choose your own image*</label>
+          <input type="file" id="image" accept="image/*" onChange={(e)=> setUserChoosenImage(e.target.files[0])}/>
+         <input placeholder='Artist Name' class='custom-input' required/>
+          <input placeholder='Song Title' class='custom-input' required/>
           <button type="submit">Submit</button>
         </div>
       </Modal>
