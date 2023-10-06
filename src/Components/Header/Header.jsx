@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './Header.css'
 import { PiMusicNotesBold } from "react-icons/pi";
 import ReactPlayer from 'react-player'
@@ -45,12 +45,16 @@ const customStyles = {
          }
   }
 
-  const handleSongEdit = async (player)=>{
+  const handleSongEdit = async ({player})=>{
     console.dir(player)
   };
 
-  const [userChoosenImage, setUserChoosenImage] = useState(""); 
-  console.log(userChoosenImage)
+  const [userImage, setUserImage] = useState("");
+  const handleImageChange = (e) => {
+  const file = e.target.files[0];
+  setUserImage(URL.createObjectURL(file));
+};
+
   return (
     <>
     <header>
@@ -70,13 +74,12 @@ const customStyles = {
         style={customStyles}
         contentLabel="Music apply">
         <div className='modal-container'>
-
           <ReactPlayer url={input} hidden onReady={handleSongEdit}/>
-          <img src={userChoosenImage} alt='album cover' />
+          <img src={userImage} style={userImage? {display: 'block'}: {display: 'none'}}/>
           <label>*Optional choose your own image*</label>
-          <input type="file" id="image" accept="image/*" onChange={(e)=> setUserChoosenImage(e.target.files[0])}/>
-         <input placeholder='Artist Name' class='custom-input' required/>
-          <input placeholder='Song Title' class='custom-input' required/>
+          <input type="file" id="image" accept="image/*" onChange={handleImageChange}/>
+         <input placeholder='Artist Name' className='custom-input' required/>
+          <input placeholder='Song Title' className='custom-input' required/>
           <button type="submit">Submit</button>
         </div>
       </Modal>
