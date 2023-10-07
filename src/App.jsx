@@ -3,6 +3,8 @@ import "./App.css"
 import { GET_ALL_SONGS } from './utils/queries'
 import { useQuery } from "@apollo/client"
 import ReactPlayer from 'react-player'
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Header from './Components/Header/Header'
 import PlayingNext from './Components/PlayingNext/PlayingNext'
 import Queue from './Components/Queue/Queue'
@@ -41,6 +43,7 @@ function App() {
           </div>
         </section>
       </div>
+      <ToastContainer/>
     </div>
   );
 }
