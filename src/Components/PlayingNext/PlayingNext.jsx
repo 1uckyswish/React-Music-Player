@@ -20,8 +20,9 @@ function PlayingNext() {
     <section className='controls'>
         <TbChevronsLeft className='playing-btns'/>
             {status 
-            ? <BsFillPlayFill onClick={()=>setStatus(!status)} className='playing-btns'/> 
-            : <HiPause onClick={()=>setStatus(!status)} className='playing-btns'/>}
+            ? <HiPause onClick={()=>setStatus(!status)} className='playing-btns'/>
+            : <BsFillPlayFill onClick={()=>setStatus(!status)} className='playing-btns'/> 
+            }
         <TbChevronsRight className='playing-btns'/>
     </section>
     </div>
