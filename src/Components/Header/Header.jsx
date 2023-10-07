@@ -178,10 +178,7 @@ const {Title,Artist,Thumbnail} = song;
         <PiMusicNotesBold className='music-icon'/>
         <form onSubmit={handleInput}>
            <input onChange={(e)=>setInput(e.target.value)} 
-        value={input} placeholder='Add Youtube Link' type='text'/>
-          {/* <div className='input-div'>
-              <button type='submit' id='submit-btn'>Submit</button>
-          </div> */}
+        value={input} placeholder='Add Youtube Link or Soundcloud Link' type='text'/>
         </form>
          <div>
     </div>
