@@ -5,7 +5,7 @@ import { PiMusicNotesBold } from "react-icons/pi";
 import ReactPlayer from 'react-player'
 import Modal from 'react-modal';
 import { useMutation } from '@apollo/client';
-import { ADD_SONG } from '../../utils/queries';
+import { ADD_SONG } from '../../utils/mutations';
 
  const DEFAULT_SONG = {
     Duration: 0,
