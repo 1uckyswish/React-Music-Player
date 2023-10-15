@@ -125,7 +125,7 @@ const customStyles = {
 
    const addSongToDB = async (song) => {
     try{
-        const {Artist, Title, Thumbnail, Duration, URL} = song;
+        const {Artist, Title, Thumbnail, Duration, input } = song;
         await addSong({
         variables: {
           Duration,
@@ -189,7 +189,6 @@ const {Title,Artist,Thumbnail} = song;
         contentLabel="Music apply">
         <div className='modal-container'>
           <ReactPlayer url={input} hidden onReady={handleSongEdit}/>
-          {/* <img src={userImage} style={userImage? {display: 'block'}: {display: 'none'}}/> */}
           <img src={Thumbnail} alt={Artist} />
           <label>*Optional choose your own image*</label>
           <input type="file" id="image" accept="image/*" onChange={handleImageChange}/>

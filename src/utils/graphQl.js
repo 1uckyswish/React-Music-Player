@@ -1,24 +1,22 @@
-import {ApolloClient,HttpLink,InMemoryCache,gql,split} from "@apollo/client";
+import { ApolloClient, HttpLink, InMemoryCache, split, gql } from "@apollo/client";
 import { getMainDefinition } from "@apollo/client/utilities";
 import { GraphQLWsLink } from "@apollo/client/link/subscriptions";
 import { createClient } from "graphql-ws";
-import { GET_QUEUED_SONGS } from "./queries"
+import { GET_QUEUED_SONGS } from "./queries";
 
 const httpLink = new HttpLink({
-        uri: "https://cool-mouse-48.hasura.app/v1/graphql",
-        headers: {
-            "x-hasura-admin-secret":
-            import.meta.env.VITE_DB_KEY,
+  uri: "https://cool-mouse-48.hasura.app/v1/graphql",
+  headers: {
+    "x-hasura-admin-secret": import.meta.env.VITE_DB_KEY,
   },
 });
 
 const wsLink = new GraphQLWsLink(
   createClient({
-    url: "https://cool-mouse-48.hasura.app/v1/graphql",
+    url: "wss://cool-mouse-48.hasura.app/v1/graphql", // Correct WebSocket URL with 'wss' scheme
     connectionParams: {
       headers: {
-        "x-hasura-admin-secret":
-          import.meta.env.VITE_DB_KEY,
+        "x-hasura-admin-secret": import.meta.env.VITE_DB_KEY,
       },
     },
     options: {
@@ -38,6 +36,9 @@ const splitLink = split(
   wsLink,
   httpLink
 );
+
+// Rest of your Apollo Client setup
+
 // const cache = new InMemoryCache();
 
 const client = new ApolloClient({

@@ -11,9 +11,11 @@ import PlayingNext from './Components/PlayingNext/PlayingNext'
 import Queue from './Components/Queue/Queue'
 import SongCard from './Components/SongCard/SongCard'
 import songReducer from "./context/reducer";
+import { GET_QUEUED_SONGS } from "./utils/queries";
 
 function App() {
     const initialSongState = useContext(SongContext);
+    const { queueData } = useQuery(GET_QUEUED_SONGS);
 
   const [state, dispatch] = useReducer(songReducer, initialSongState);
 
@@ -27,7 +29,6 @@ function App() {
     console.error("Error fetching data:", error);
   }
 
-  console.log(data, 'holly molly');
 
   return (
      <SongContext.Provider value={{ state, dispatch }}>
@@ -35,18 +36,16 @@ function App() {
       <Header />
       <div>
         <PlayingNext />
-        {/* <section className='playlist-centering'>
+        <section className='playlist-centering'>
           <h2 className='playlist-section'>Queue</h2>
           <div>
-            <Queue />
+          <Queue queue={queueData}/>
           </div>
-        </section> */}
+        </section>
         <section className='playlist-centering'>
           <h2 className='playlist-section'>All Songs</h2>
           <div>
-            {
-              data?.Music.map(song => <SongCard song={song} key={song.ID}/>)
-            }
+            <SongCard />
           </div>
         </section>
       </div>

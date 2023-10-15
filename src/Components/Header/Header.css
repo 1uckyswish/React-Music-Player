@@ -14,10 +14,9 @@ header input {
     padding-left: 15px;
     letter-spacing: 1px;
     height: 3.5vh;
-    width: 40vw;
+    width: 35vw;
     margin-top: 11px;
     margin-right: 10px;
-    /* margin-left: 70%; */
 }
 
 .music-icon {
@@ -55,7 +54,6 @@ label {
 }
 
 input[type="file"], input[type="text"] {
-    width: 100%;
     padding: 12px;
     margin-bottom: 15px;
     border: 1px solid #6b757d;

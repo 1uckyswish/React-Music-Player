@@ -6,20 +6,15 @@ import { ADD_OR_REMOVE_FROM_QUEUE } from '../../utils/mutations';
 import image1 from "../../assets/cover-1.jpg"
 
 export default function Queue({queue}) {
-  console.log(queue, 'tina tina')
-   const song = {
-    Title: "Water",
-    Artist: "Tezzo",
-    Thumbnail: image1,
-  };
   return (
     <div className='Queue-container'>
-     <h2>({queue?.length})</h2>
+      jjj
+     {/* <h2>({queue?.length})</h2>
         <div>
-          {queue.map((song, index) => (
+          {queue?.map((song, index) => (
         <QueuedTitle song={song} key={index} />
       ))}
-        </div>
+        </div> */}
     </div>
   )
 }

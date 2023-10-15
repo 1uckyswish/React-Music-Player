@@ -1,6 +1,5 @@
 import song from '../../assets/cover-1.jpg'
 import React, { useContext } from "react";
-import Queue from "../Queue/Queue";
 import { GET_QUEUED_SONGS } from '../../utils/queries';
 import { useQuery } from "@apollo/client";
 import { SongContext } from "../../context/Context";
@@ -8,12 +7,11 @@ import './PlayingNext.css'
 import { BsFillPlayFill } from "react-icons/bs";
 import { HiPause } from "react-icons/hi2";
 import { TbChevronsLeft, TbChevronsRight } from "react-icons/tb";
-
-
-
+import Queue from '../Queue/Queue';
+ 
 function PlayingNext() {
     const { state, dispatch } = useContext(SongContext);
-    const { data } = useQuery(GET_QUEUED_SONGS);
+    // const { data } = useQuery(GET_QUEUED_SONGS);
 
     function handleTogglePlay() {
     dispatch(state.isPlaying ? { type: "PAUSE_SONG" } : { type: "PLAY_SONG" });
