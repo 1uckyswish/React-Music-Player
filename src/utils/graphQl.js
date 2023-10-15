@@ -79,9 +79,9 @@ const client = new ApolloClient({
         });
         if (queryResult) {
           const { queue } = queryResult;
-          const isInQueue = queue.some((song) => song.id === input.id);
+          const isInQueue = queue.some((song) => song.ID === input.ID);
           const newQueue = isInQueue
-            ? queue.filter((song) => song.id !== input.id)
+            ? queue.filter((song) => song.ID !== input.ID)
             : [...queue, input];
           cache.writeQuery({
             query: GET_QUEUED_SONGS,

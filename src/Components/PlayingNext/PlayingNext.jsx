@@ -1,5 +1,4 @@
-import song from "../../assets/cover-1.jpg";
-import React, { useContext, useRef, useState, } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 import { GET_QUEUED_SONGS } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
 import { SongContext } from "../../context/Context";
@@ -7,26 +6,27 @@ import "./PlayingNext.css";
 import { BsFillPlayFill } from "react-icons/bs";
 import { HiPause } from "react-icons/hi2";
 import { TbChevronsLeft, TbChevronsRight } from "react-icons/tb";
-import Queue from "../Queue/Queue";
 import ReactPlayer from "react-player";
 
 function PlayingNext() {
   const { state, dispatch } = useContext(SongContext);
-  // const { data } = useQuery(GET_QUEUED_SONGS);
   const [play, setPlay] = useState(0);
   const [sliding, setSliding] = useState(false);
   const [playedSeconds, setPlayedSeconds] = useState(0);
   const reactPlayerRef = useRef();
-  
+  const [positionInQueue, setPositionInQueue] = useState(0);
+ const { data } = useQuery(GET_QUEUED_SONGS);
+
 
   function handleTogglePlay() {
     dispatch(state.isPlaying ? { type: "PAUSE_SONG" } : { type: "PLAY_SONG" });
   }
 
   function handleProgressChange(event, newValue) {
-    console.log(event, 'event')
-    console.log(newValue, 'new value')
-    setPlay(newValue);
+    //! ask byron
+    //  setPlay(newValue);
+    // console.log(newValue, 'new value')
+    setPlay(event.target.value);
   }
 
   function handleMouseDown() {
@@ -35,9 +35,40 @@ function PlayingNext() {
 
   function handleMouseUp() {
     setSliding(false);
-    console.log(play, "idkk idk")
+    // console.log(reactPlayerRef.current.seekTo(play), 'player')
     reactPlayerRef.current.seekTo(play);
   }
+
+ function formatDuration(seconds) {
+    return new Date(seconds * 1000).toISOString().substring(11, 19);
+  }
+
+  function handleNextSong() {
+    const nextSong = data?.queue[positionInQueue + 1];
+    if (nextSong) {
+      dispatch({ type: "SET_SONG", payload: { song: nextSong } });
+    }
+  }
+
+  function handlePrevSong() {
+    const prevSong = data?.queue[positionInQueue - 1];
+    if (prevSong) {
+      dispatch({ type: "SET_SONG", payload: { song: prevSong } });
+    }
+  }
+
+   useEffect(() => {
+    const songIndex = data?.queue.findIndex((song) => song.ID === state.song.ID);
+    setPositionInQueue(songIndex);
+  }, [data?.queue, state.song.ID]);
+
+  useEffect(() => {
+    const nextSong = data?.queue[positionInQueue + 1];
+    if (play === 1 && nextSong) {
+      setPlay(0);
+      dispatch({ type: "SET_SONG", payload: { song: nextSong } });
+    }
+  }, [play, data?.queue, dispatch, positionInQueue]);
 
 
   return (
@@ -48,13 +79,13 @@ function PlayingNext() {
         <p>{state.song.Artist}</p>
       </section>
       <section className="controls">
-        <TbChevronsLeft className="playing-btns" />
+        <TbChevronsLeft className="playing-btns" onClick={handlePrevSong}/>
         {state.isPlaying ? (
           <HiPause onClick={handleTogglePlay} className="playing-btns" />
         ) : (
           <BsFillPlayFill onClick={handleTogglePlay} className="playing-btns" />
         )}
-        <TbChevronsRight className="playing-btns" />
+        <TbChevronsRight className="playing-btns" onClick={handleNextSong}/>
       </section>
       <input 
        value={play}
@@ -66,17 +97,19 @@ function PlayingNext() {
        onMouseDown={handleMouseDown}
        onMouseUp={handleMouseUp}
      />
+     <p>{formatDuration(playedSeconds)}</p>
       <ReactPlayer
-        hidden
         url={state.song.URL}
         playing={state.isPlaying}
         ref={reactPlayerRef}
-        onProgress={({ played, playedSeconds }) => {
+        onProgress={({played, playedSeconds}) => {
           if (!sliding) {
             setPlay(played)
+            setPlayedSeconds(playedSeconds)
           }
           console.log(play)
         }}
+         hidden
       />
       {/* <Queue queue={data}/> */}
     </div>

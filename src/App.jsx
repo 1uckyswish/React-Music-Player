@@ -15,20 +15,8 @@ import { GET_QUEUED_SONGS } from "./utils/queries";
 
 function App() {
     const initialSongState = useContext(SongContext);
-    const { queueData } = useQuery(GET_QUEUED_SONGS);
-
-  const [state, dispatch] = useReducer(songReducer, initialSongState);
-
-  const { data, loading, error } = useQuery(GET_ALL_SONGS);
-
-  if (loading) {
-    console.log("Loading...");
-  }
-
-  if (error) {
-    console.error("Error fetching data:", error);
-  }
-
+    const [state, dispatch] = useReducer(songReducer, initialSongState);
+    const {data} = useQuery(GET_QUEUED_SONGS);
 
   return (
      <SongContext.Provider value={{ state, dispatch }}>
@@ -37,9 +25,8 @@ function App() {
       <div>
         <PlayingNext />
         <section className='playlist-centering'>
-          <h2 className='playlist-section'>Queue</h2>
           <div>
-          <Queue queue={queueData}/>
+          <Queue queue={data?.queue}/>
           </div>
         </section>
         <section className='playlist-centering'>

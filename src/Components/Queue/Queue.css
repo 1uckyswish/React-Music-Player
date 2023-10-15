@@ -3,3 +3,8 @@
     display: flex;
     flex-direction: column;
 }
+.q-container img {
+    width: 100px;
+    height: 100px;
+    object-fit: fill;
+}
