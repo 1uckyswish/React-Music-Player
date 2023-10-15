@@ -5,6 +5,7 @@ import { SongContext } from "../../context/Context";
 import { useSubscription, useMutation } from "@apollo/client";
 import {GET_SONGS} from '../../utils/subscription';
 import { ADD_OR_REMOVE_FROM_QUEUE } from "../../utils/mutations";
+import { BsFillPlayFill } from "react-icons/bs";
 
 
 export default function SongCard() {
@@ -57,8 +58,8 @@ function Song({ song }) {
         </div>
       </div>
       <div className="playlist-edit">
-        <MdOutlineAdd className="playlist-addbtn" onClick={handleTogglePlay} style={{fontSize: '2rem'}}/>
-        <MdOutlineAdd onClick={handleAddOrRemoveFromQueue}/>
+        <BsFillPlayFill className="playlist-addbtn" onClick={handleTogglePlay} style={{fontSize: '2rem'}}/>
+        <MdOutlineAdd onClick={handleAddOrRemoveFromQueue} style={{fontSize: '2rem'}}/>
       </div>
     </section>
   );

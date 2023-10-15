@@ -7,4 +7,23 @@
     width: 100px;
     height: 100px;
     object-fit: fill;
+    margin-right: 20px;
+}
+.q-container {
+    display: flex;
+    justify-content: space-between;
+}
+.q-songCard {
+    display: flex;
+    flex-direction: column;
+}
+.q-container button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+}
+.q-leftSide {
+    display: flex;
+    align-items: center;
 }

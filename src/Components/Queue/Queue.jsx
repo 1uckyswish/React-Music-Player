@@ -33,13 +33,15 @@ function QueuedTitle({ song }) {
   }
   return (
     <div className='q-container'>
-      <img src={Thumbnail} alt={Title} />
-      <div>
-        <h2>{Title}</h2>
-        <p>{Artist}</p>
+      <div className='q-leftSide'>
+        <img src={Thumbnail} alt={Title} />
+        <div className='q-songCard'>
+          <h2>{Title}</h2>
+          <p>{Artist}</p>
+        </div>
       </div>
       <button onClick={handleAddOrRemoveFromQueue}>
-        delete
+       X
       </button>
     </div>
   );
