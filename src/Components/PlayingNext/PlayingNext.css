@@ -7,8 +7,8 @@
     margin: 150px 0px 50px 0px;
 }
 .playing-container img {
-    width: 300px;
-    height: 300px;
+    width: 320px;
+    height: 320px;
     border-radius: 200px;
     object-fit: cover;
     -webkit-user-drag: none;
@@ -27,8 +27,16 @@
     font-size: 3rem;
     margin: 0px 20px;
 }
+.playing-btns:hover {
+    color: lightblue;
+}
 .controls {
     padding-top: 30px;
     cursor: pointer;
     padding-bottom: 30px;
+}
+.seconds-bar {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
 }
