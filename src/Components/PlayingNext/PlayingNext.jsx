@@ -97,7 +97,7 @@ function PlayingNext() {
        onMouseDown={handleMouseDown}
        onMouseUp={handleMouseUp}
      />
-     <p>{formatDuration(playedSeconds)}</p>
+     <p className="seconds-bar">{formatDuration(playedSeconds)}</p>
       <ReactPlayer
         url={state.song.URL}
         playing={state.isPlaying}
