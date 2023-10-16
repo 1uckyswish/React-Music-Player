@@ -15,8 +15,7 @@ function PlayingNext() {
   const [playedSeconds, setPlayedSeconds] = useState(0);
   const reactPlayerRef = useRef();
   const [positionInQueue, setPositionInQueue] = useState(0);
- const { data } = useQuery(GET_QUEUED_SONGS);
-
+  const { data } = useQuery(GET_QUEUED_SONGS);
 
   function handleTogglePlay() {
     dispatch(state.isPlaying ? { type: "PAUSE_SONG" } : { type: "PLAY_SONG" });
@@ -39,7 +38,7 @@ function PlayingNext() {
     reactPlayerRef.current.seekTo(play);
   }
 
- function formatDuration(seconds) {
+  function formatDuration(seconds) {
     return new Date(seconds * 1000).toISOString().substring(11, 19);
   }
 
@@ -57,8 +56,10 @@ function PlayingNext() {
     }
   }
 
-   useEffect(() => {
-    const songIndex = data?.queue.findIndex((song) => song.ID === state.song.ID);
+  useEffect(() => {
+    const songIndex = data?.queue.findIndex(
+      (song) => song.ID === state.song.ID
+    );
     setPositionInQueue(songIndex);
   }, [data?.queue, state.song.ID]);
 
@@ -70,46 +71,49 @@ function PlayingNext() {
     }
   }, [play, data?.queue, dispatch, positionInQueue]);
 
-
   return (
     <div className="playing-container">
-      <img src={state.song.Thumbnail} alt="song" className={state.isPlaying && "rotating-disc"}/>
+      <img
+        src={state.song.Thumbnail}
+        alt="song"
+        className={state.isPlaying && "rotating-disc"}
+      />
       <section className="playing-song-info">
         <h4>{state.song.Title}</h4>
         <p>{state.song.Artist}</p>
       </section>
       <section className="controls">
-        <TbChevronsLeft className="playing-btns" onClick={handlePrevSong}/>
+        <TbChevronsLeft className="playing-btns" onClick={handlePrevSong} />
         {state.isPlaying ? (
           <HiPause onClick={handleTogglePlay} className="playing-btns" />
         ) : (
           <BsFillPlayFill onClick={handleTogglePlay} className="playing-btns" />
         )}
-        <TbChevronsRight className="playing-btns" onClick={handleNextSong}/>
+        <TbChevronsRight className="playing-btns" onClick={handleNextSong} />
       </section>
-      <input 
-       value={play}
-       type="range"
-       min={0}
-       max={1}
-       step={0.01}
-       onChange={handleProgressChange}
-       onMouseDown={handleMouseDown}
-       onMouseUp={handleMouseUp}
-     />
-     <p className="seconds-bar">{formatDuration(playedSeconds)}</p>
+      <input
+        value={play}
+        type="range"
+        min={0}
+        max={1}
+        step={0.01}
+        onChange={handleProgressChange}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+      />
+      <p className="seconds-bar">{formatDuration(playedSeconds)}</p>
       <ReactPlayer
         url={state.song.URL}
         playing={state.isPlaying}
         ref={reactPlayerRef}
-        onProgress={({played, playedSeconds}) => {
+        onProgress={({ played, playedSeconds }) => {
           if (!sliding) {
-            setPlay(played)
-            setPlayedSeconds(playedSeconds)
+            setPlay(played);
+            setPlayedSeconds(playedSeconds);
           }
-          console.log(play)
+          console.log(play);
         }}
-         hidden
+        hidden
       />
       {/* <Queue queue={data}/> */}
     </div>

@@ -25,7 +25,7 @@ function Header() {
       transform: "translate(-50%, -50%)",
       borderRadius: "24px",
       backgroundColor: "#1b2328",
-      height: '90vh'
+      height: "90vh",
     },
     overlay: {
       backgroundColor: "rgba(0,0,0,0.6)",
