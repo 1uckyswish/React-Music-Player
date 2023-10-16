@@ -2,11 +2,11 @@ import { createContext } from "react";
 
 export const SongContext = createContext({
   song: {
-    ID: "12f90577-3709-4651-929f-f96e5c01e116",
-    Title: " (세븐틴) 'Rock with you' Official MV",
-    Artist: "SEVENTEEN",
-    Thumbnail: "https://img.youtube.com/vi/WpuatuzSDK4/0.jpg",
-    URL:"https://www.youtube.com/watch?v=gRnuFC4Ualw&list=RDEM5NHTZtEX3GlvWCo6kcmjKw&start_radio=1&rv=0lapF4DQPKQ",
-    Duration: 184,
+    ID: "85f07bd5-29e5-40f1-98c2-feb1239d1291",
+    Title: "Somewhere Only We Know",
+    Artist: "Keane",
+    Thumbnail: "https://images.pexels.com/photos/6536121/pexels-photo-6536121.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    URL:"https://www.youtube.com/watch?v=-HwPKDlb3e8",
+    Duration: 234,
   },
 });

@@ -73,7 +73,7 @@ function PlayingNext() {
 
   return (
     <div className="playing-container">
-      <img src={state.song.Thumbnail} alt="song" />
+      <img src={state.song.Thumbnail} alt="song" className={state.isPlaying && "rotating-disc"}/>
       <section className="playing-song-info">
         <h4>{state.song.Title}</h4>
         <p>{state.song.Artist}</p>

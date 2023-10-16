@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.8.4",
+    "colorthief": "^2.4.0",
     "dotenv": "^16.3.1",
     "graphql": "^16.8.1",
     "graphql-ws": "^5.14.1",
