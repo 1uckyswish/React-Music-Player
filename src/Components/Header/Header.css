@@ -25,9 +25,8 @@ header input {
 }
 
 .modal-container {
-    height: 90vh;
     width: 60vw;
-    max-height: 70vh;
+    max-height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -41,7 +40,7 @@ header input {
 .modal-container img {
     height: 100%;
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 10px;
     margin-bottom: 20px;
 }
