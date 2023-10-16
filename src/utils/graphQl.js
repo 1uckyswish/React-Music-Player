@@ -1,4 +1,10 @@
-import { ApolloClient, HttpLink, InMemoryCache, split, gql } from "@apollo/client";
+import {
+  ApolloClient,
+  HttpLink,
+  InMemoryCache,
+  split,
+  gql,
+} from "@apollo/client";
 import { getMainDefinition } from "@apollo/client/utilities";
 import { GraphQLWsLink } from "@apollo/client/link/subscriptions";
 import { createClient } from "graphql-ws";
@@ -36,10 +42,6 @@ const splitLink = split(
   wsLink,
   httpLink
 );
-
-// Rest of your Apollo Client setup
-
-// const cache = new InMemoryCache();
 
 const client = new ApolloClient({
   link: splitLink,
