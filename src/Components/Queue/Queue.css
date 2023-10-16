@@ -6,8 +6,8 @@
 .q-container img {
     width: 100px;
     height: 100px;
-    object-fit: fill;
-    margin-right: 20px;
+    object-fit: cover;
+    margin: 10px 20px 10px 0px;
 }
 .q-container {
     display: flex;
@@ -17,11 +17,22 @@
     display: flex;
     flex-direction: column;
 }
+.q-songCard h1 {
+    font-size: 1.2rem;
+}
+.q-songCard h2{
+    font-size: 1rem;
+}
 .q-container button {
     background-color: transparent;
     border: none;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+.q-container button:hover {
+   color: lightblue;
+   cursor: pointer;
 }
 .q-leftSide {
     display: flex;
