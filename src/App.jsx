@@ -1,9 +1,7 @@
-import { useState, useContext, useReducer } from "react";
+import { useContext, useReducer } from "react";
 import { SongContext } from "./context/Context";
 import "./App.css"
-import { GET_ALL_SONGS } from './utils/queries'
 import { useQuery } from "@apollo/client"
-import ReactPlayer from 'react-player'
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './Components/Header/Header'
