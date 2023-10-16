@@ -15,10 +15,10 @@
    justify-content: center;
 }
 .playlist-info h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 .playlist-info h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 .playlist-row {
     display: flex;
@@ -29,19 +29,15 @@
 .playlist-add-song {
     font-size: 1.5rem;
 }
-.playlist-addbtn {
-font-size: 1.6rem;
-margin-right: 10px;
-}
-.playlist-deletebtn{
-font-size: 1.4rem;
-margin-bottom: 1px;
-}
-.playlist-addbtn:hover, .playlist-deletebtn:hover {
+.playlist-playbtn:hover{
     color: lightblue;
     cursor: pointer;
 }
-.hide-btn {
-    display: none;
+.playlist-addbtn:hover {
+    color: lightblue;
+    cursor: pointer;  
+}
+.playlist-edit {
+    display: flex;
 }
 

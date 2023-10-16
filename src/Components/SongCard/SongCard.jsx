@@ -9,14 +9,11 @@ import { BsFillPlayFill } from "react-icons/bs";
 
 
 export default function SongCard() {
-  // const { data, loading, error } = useQuery(GET_ALL_SONGS);
-  // const { subData} = useSubscription(GET_SONGS);
-  // console.log(subData)
-  const { data: subData } = useSubscription(GET_SONGS);
+  const { data } = useSubscription(GET_SONGS);
 
   return (
     <div>
-      {subData?.Music.map(item => <Song song={item} key={item.ID}/> )}
+      {data?.Music.map(item => <Song song={item} key={item.ID}/> )}
     </div>
   );
 }
@@ -58,8 +55,8 @@ function Song({ song }) {
         </div>
       </div>
       <div className="playlist-edit">
-        <BsFillPlayFill className="playlist-addbtn" onClick={handleTogglePlay} style={{fontSize: '2rem'}}/>
-        <MdOutlineAdd onClick={handleAddOrRemoveFromQueue} style={{fontSize: '2rem'}}/>
+        <BsFillPlayFill className="playlist-playbtn" onClick={handleTogglePlay} style={{fontSize: '2rem'}}/>
+        <MdOutlineAdd className="playlist-addbtn"onClick={handleAddOrRemoveFromQueue} style={{fontSize: '2rem'}}/>
       </div>
     </section>
   );
