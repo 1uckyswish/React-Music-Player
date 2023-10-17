@@ -13,7 +13,7 @@ import { GET_QUEUED_SONGS } from "./queries";
 const httpLink = new HttpLink({
   uri: "https://cool-mouse-48.hasura.app/v1/graphql",
   headers: {
-    "x-hasura-admin-secret": import.meta.env.VITE_DB_KEY,
+    "x-hasura-admin-secret": '28q81B3QXDYMtO2wEfg544HFSGMGlKk2M54MwdCZKbUvBqwJmvdqNVw1A4YZrh92',
   },
 });
 
@@ -22,7 +22,7 @@ const wsLink = new GraphQLWsLink(
     url: "wss://cool-mouse-48.hasura.app/v1/graphql", // Correct WebSocket URL with 'wss' scheme
     connectionParams: {
       headers: {
-        "x-hasura-admin-secret": import.meta.env.VITE_DB_KEY,
+        "x-hasura-admin-secret": '28q81B3QXDYMtO2wEfg544HFSGMGlKk2M54MwdCZKbUvBqwJmvdqNVw1A4YZrh92',
       },
     },
     options: {
