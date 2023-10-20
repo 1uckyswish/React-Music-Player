@@ -31,18 +31,18 @@
     color: lightblue;
 }
 
-
 input[type="range"] {
-    -webkit-appearance: none;
+     opacity: 1;
     width: 35%;
     height: 10px;
     border-radius: 5px;
     background-color: #7f7d7d;
     outline: none;
     opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
+    transition: opacity 0.2s;
     margin-top: 20px;
+    cursor: pointer;
+    -webkit-appearance: none;
 }
 
 input[type="range"]:hover {
@@ -50,13 +50,12 @@ input[type="range"]:hover {
 }
 
 input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
     width: 20px;
     height: 20px;
     border-radius: 50%;
     background: lightblue;
     cursor: pointer;
+    -webkit-appearance: none;
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -67,20 +66,13 @@ input[type="range"]::-moz-range-thumb {
     cursor: pointer;
 }
 
-/* Optional: style the range track if needed */
-input[type="range"]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 5px;
-    cursor: pointer;
-}
-
+input[type="range"]::-webkit-slider-runnable-track,
 input[type="range"]::-moz-range-track {
     width: 100%;
     height: 5px;
     cursor: pointer;
 }
 
-/* Optional: style the range value if needed */
 input[type="range"]::-moz-range-progress {
     background-color: lightblue;
 }
