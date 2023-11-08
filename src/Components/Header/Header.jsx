@@ -6,6 +6,7 @@ import ReactPlayer from "react-player";
 import Modal from "react-modal";
 import { useMutation } from "@apollo/client";
 import { ADD_SONG } from "../../utils/mutations";
+import { TbInputSearch } from "react-icons/tb";
 
 const DEFAULT_SONG = {
   Duration: 0,
@@ -188,7 +189,7 @@ function Header() {
             type="text"
           />
         </form>
-        <div></div>
+        <div><TbInputSearch className="search-icon"/></div>
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={openModal}
