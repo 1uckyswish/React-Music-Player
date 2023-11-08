@@ -3,26 +3,33 @@
     display: flex;
     flex-direction: column;
 }
+
 .q-container img {
     width: 100px;
     height: 100px;
     object-fit: cover;
     margin: 10px 20px 10px 0px;
 }
+
 .q-container {
     display: flex;
     justify-content: space-between;
 }
+
 .q-songCard {
     display: flex;
     flex-direction: column;
 }
+
 .q-songCard h1 {
     font-size: 1.2rem;
 }
-.q-songCard h2{
+
+.q-songCard h2 {
     font-size: 1rem;
+    padding-top: 8px;
 }
+
 .q-container button {
     background-color: transparent;
     border: none;
@@ -30,11 +37,41 @@
     font-size: 1.4rem;
     cursor: pointer;
 }
+
 .q-container button:hover {
-   color: lightblue;
-   cursor: pointer;
+    color: lightblue;
+    cursor: pointer;
 }
+
 .q-leftSide {
     display: flex;
     align-items: center;
+}
+
+
+@media screen and (max-width: 508px) {
+    .q-songCard {
+        text-align: center;
+    }
+
+    .q-container img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    margin: 10px 20px 10px 0px;
+}
+
+
+    .q-container{
+        padding: 10px;
+    }
+
+    .q-songCard h1 {
+    font-size: 1rem;
+}
+
+.q-songCard h2 {
+    font-size: 0.8rem;
+}
+
 }
