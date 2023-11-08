@@ -24,6 +24,10 @@ header input {
     color: lightblue;
 }
 
+.search-icon{
+    display: none;
+}
+
 .modal-container {
     width: 60vw;
     max-height: 90vh;
@@ -40,7 +44,7 @@ header input {
 .modal-container img {
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 10px;
     margin-bottom: 20px;
 }
@@ -98,6 +102,19 @@ button[type="submit"]:hover {
 }
 
 .custom-input::placeholder {
-    color: #bbc6cc;
+    color: lightblue;
 }
 
+
+@media screen and (max-width: 600px){
+    header input:first-child{
+         border: 2px solid red;
+         display: none;
+    }
+
+   .search-icon{
+     display: block;
+      font-size: 1.7rem;
+    color: lightblue;
+    }
+}
