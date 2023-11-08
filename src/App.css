@@ -25,3 +25,9 @@ a{
   flex-direction: column;
   padding: 0px 100px 80px 100px;
 }
+
+@media screen and (max-width: 508px) {
+  .playlist-centering {
+  padding: 0px 0px 0px 0px;
+}
+}
