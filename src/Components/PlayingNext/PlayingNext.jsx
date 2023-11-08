@@ -100,6 +100,7 @@ function PlayingNext() {
         onChange={handleProgressChange}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
+        className="music-slider"
       />
       <p className="seconds-bar">{formatDuration(playedSeconds)}</p>
       <ReactPlayer
@@ -111,7 +112,6 @@ function PlayingNext() {
             setPlay(played);
             setPlayedSeconds(playedSeconds);
           }
-          console.log(play);
         }}
         hidden
       />
