@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./SongCard.css";
-import { MdOutlineAdd } from "react-icons/md";
+import { TbMusicPlus } from "react-icons/tb";
 import { SongContext } from "../../context/Context";
 import { useSubscription, useMutation } from "@apollo/client";
 import { GET_SONGS } from "../../utils/subscription";
 import { ADD_OR_REMOVE_FROM_QUEUE } from "../../utils/mutations";
-import { BsFillPlayFill } from "react-icons/bs";
+import { AiFillPlayCircle } from "react-icons/ai";
 
 export default function SongCard() {
   const { data } = useSubscription(GET_SONGS);
@@ -56,12 +56,12 @@ function Song({ song }) {
         </div>
       </div>
       <div className="playlist-edit">
-        <BsFillPlayFill
+        <AiFillPlayCircle
           className="playlist-playbtn"
           onClick={handleTogglePlay}
           style={{ fontSize: "2rem" }}
         />
-        <MdOutlineAdd
+        <TbMusicPlus
           className="playlist-addbtn"
           onClick={handleAddOrRemoveFromQueue}
           style={{ fontSize: "2rem" }}

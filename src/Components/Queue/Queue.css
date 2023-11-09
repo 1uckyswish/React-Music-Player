@@ -36,11 +36,20 @@
     color: white;
     font-size: 1.4rem;
     cursor: pointer;
+    transition: color 0.3s ease;
+}
+.q-container button:hover {
+    color: red;
+    cursor: pointer;
+    animation: shake 2s ease;
 }
 
-.q-container button:hover {
-    color: lightblue;
-    cursor: pointer;
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(5px); }
 }
 
 .q-leftSide {

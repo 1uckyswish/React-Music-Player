@@ -2,6 +2,8 @@ import React from "react";
 import "./Queue.css";
 import { useMutation } from "@apollo/client";
 import { ADD_OR_REMOVE_FROM_QUEUE } from "../../utils/mutations";
+import { BsTrash } from "react-icons/bs";
+
 
 export default function Queue({ queue }) {
   return (
@@ -38,7 +40,7 @@ function QueuedTitle({ song }) {
           <h2>{Artist}</h2>
         </div>
       </div>
-      <button onClick={handleAddOrRemoveFromQueue}>X</button>
+      <button onClick={handleAddOrRemoveFromQueue}><BsTrash /></button>
     </div>
   );
 }

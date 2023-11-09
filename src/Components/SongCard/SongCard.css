@@ -30,6 +30,9 @@
 .playlist-add-song {
     font-size: 1.5rem;
 }
+.playlist-playbtn{
+    margin-right: 20px;
+}
 .playlist-playbtn:hover{
     color: lightblue;
     cursor: pointer;
@@ -51,6 +54,13 @@
 }
 .playlist-addbtn{
     margin: 0 5px 0 10px;
+}
+
+.playlist-playbtn{
+    margin-right: 0px;
+}
+.playlist-addbtn{
+    margin-right: 15px;
 }
 
 }

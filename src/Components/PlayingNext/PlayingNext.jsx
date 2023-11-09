@@ -8,6 +8,7 @@ import { HiPause } from "react-icons/hi2";
 import { TbChevronsLeft, TbChevronsRight } from "react-icons/tb";
 import ReactPlayer from "react-player";
 
+
 function PlayingNext() {
   const { state, dispatch } = useContext(SongContext);
   const [play, setPlay] = useState(0);

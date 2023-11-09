@@ -16,7 +16,19 @@ const DEFAULT_SONG = {
 };
 
 function Header() {
-  const customStyles = {
+
+
+  Modal.setAppElement(document.getElementById("root"));
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [inputModal, setInputModal] = useState(false);
+  const [userImage, setUserImage] = useState("");
+  const handleImageChange = (e) => {
+    const file = e.target.value;
+    setUserImage(file);
+  };
+
+    const customStyles = {
     content: {
       top: "50%",
       left: "50%",
@@ -26,20 +38,12 @@ function Header() {
       transform: "translate(-50%, -50%)",
       borderRadius: "24px",
       backgroundColor: "#1b2328",
-      height: "90vh",
+      height: "auto",
+      width: inputModal && "56vw",
     },
     overlay: {
       backgroundColor: "rgba(0,0,0,0.6)",
     },
-  };
-
-  Modal.setAppElement(document.getElementById("root"));
-
-  const [modalIsOpen, setIsOpen] = useState(false);
-  const [userImage, setUserImage] = useState("");
-  const handleImageChange = (e) => {
-    const file = e.target.value;
-    setUserImage(file);
   };
 
   function openModal() {
@@ -57,6 +61,7 @@ function Header() {
     const workingURL = ReactPlayer.canPlay(input);
     if (workingURL) {
       setIsOpen(true);
+      setInputModal(false);
       // setInput("")
     } else {
       toast.error("Url Not Vaild", {
@@ -177,6 +182,7 @@ function Header() {
 
   const { Title, Artist, Thumbnail } = song;
 
+
   return (
     <>
       <header>
@@ -189,7 +195,24 @@ function Header() {
             type="text"
           />
         </form>
-        <div><TbInputSearch className="search-icon"/></div>
+        <div>
+          <TbInputSearch className="search-icon" onClick={()=>setInputModal(true)}/>
+          <Modal
+            isOpen={inputModal}
+            onRequestClose={()=>setInputModal(false)}
+            style={customStyles}
+            contentLabel="Music Input URL"
+          >
+          <form onSubmit={handleInput} className="mobile-modal">
+          <input
+            onChange={(e) => setInput(e.target.value)}
+            value={input}
+            placeholder="Add Youtube Link or Soundcloud Link"
+            type="text"
+          />
+        </form>
+          </Modal>
+        </div>
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={openModal}

@@ -108,7 +108,6 @@ button[type="submit"]:hover {
 
 @media screen and (max-width: 600px){
     header input:first-child{
-         border: 2px solid red;
          display: none;
     }
 
@@ -116,5 +115,14 @@ button[type="submit"]:hover {
      display: block;
       font-size: 1.7rem;
     color: lightblue;
+    cursor: pointer;
     }
+
+    .mobile-modal{
+        margin: 0 auto;
+    }
+
+     .mobile-modal input:first-child{
+        width: 100%;
+     }
 }
