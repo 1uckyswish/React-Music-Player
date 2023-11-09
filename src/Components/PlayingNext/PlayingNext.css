@@ -116,6 +116,7 @@ input[type="range"]::-moz-range-progress {
 .playing-song-info h4 {
     text-align: center;
     font-size: 1.5rem;
+    color: lightblue;
 }
 
 .playing-song-info p{

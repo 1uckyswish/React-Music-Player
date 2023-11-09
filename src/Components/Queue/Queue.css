@@ -23,6 +23,7 @@
 
 .q-songCard h1 {
     font-size: 1.2rem;
+        color: lightblue;
 }
 
 .q-songCard h2 {
@@ -59,15 +60,15 @@
 
 
 @media screen and (max-width: 508px) {
-    .q-songCard {
-        text-align: center;
-    }
-
     .q-container img {
     width: 90px;
     height: 90px;
     object-fit: cover;
-    margin: 10px 20px 10px 0px;
+    margin: 0px 20px 0px 0px;
+}
+
+.q-container button{
+    margin-right: 10px;
 }
 
 
